@@ -1,6 +1,8 @@
 import "./NavBar.css";
 import Cart from "../Cart/Cart";
-
+import ButtonPrimary from "../ButtonPrimary/ButtonPrimary";
+import React from "react";
+import { Key } from "lucide-react";
 const NavBar = () => {
   return (
     <nav>
@@ -8,6 +10,9 @@ const NavBar = () => {
       <ul>
         <li>Categorias</li>
         <li>Contacto</li>
+        <ButtonPrimary>
+          Login <Key />
+        </ButtonPrimary>
       </ul>
       <Cart />
     </nav>
