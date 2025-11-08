@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import ItemDetail from "../ItemDetail/ItemDetail";
+import { Link } from "react-router-dom";
 import "./ItemList.css";
 
 function ItemList() {
@@ -23,7 +23,18 @@ function ItemList() {
   return (
     <div className="itemList">
       {products.map((product) => (
-        <ItemDetail key={product.id} product={product} />
+        <div key={product.id} className="itemCard">
+          <img
+            src={product.image}
+            alt={product.title}
+            style={{ maxWidth: 120 }}
+          />
+          <h3>{product.title}</h3>
+          <p>{product.short_description}</p>
+
+          {/* El botón te lleva al detalle real */}
+          <Link to={`/products/${product.id}`}>Ver detalle</Link>
+        </div>
       ))}
     </div>
   );

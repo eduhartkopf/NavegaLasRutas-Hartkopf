@@ -1,8 +1,20 @@
+/* Contenedor general donde viven todas las cards */
 .itemList {
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  padding: 15px;
-  justify-content: space-around;
+  flex-wrap: wrap;       /* permite que bajen de línea */
+  gap: 16px;             /* espacio entre cards */
+  justify-content: center; /* opcional, queda más prolijo */
+  padding: 10px;
+}
 
+/* Cada card individual */
+.itemCard {
+  width: 200px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  text-align: center;
+  display: flex;
+  flex-direction: column; /* más lógico para contenido interno */
+  box-sizing: border-box;
 }
