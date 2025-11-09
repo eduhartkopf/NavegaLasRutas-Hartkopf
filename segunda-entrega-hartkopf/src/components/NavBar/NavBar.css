@@ -1,0 +1,48 @@
+.inicio {
+  width: 100%;
+  background-image: url("../../../images/Items/logoPortada.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  padding-bottom: 80px; 
+}
+
+
+.inicio .logo {
+  width: 200px;
+  height: auto;
+}
+
+
+.left-block {
+  display: flex;
+  align-items: center;
+}
+
+.left-block .logo {
+  display: block;
+}
+
+
+
+
+.NavBar {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: medium;
+}
+
+.NavBar li {
+  cursor: pointer;
+}
+
+.h1 {
+  font-size: 1.4rem;
+  margin: 0;
+  margin-left: 4px;
+  color: blanchedalmond;
+}

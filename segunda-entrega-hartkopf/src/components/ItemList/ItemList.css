@@ -1,20 +1,38 @@
-/* Contenedor general donde viven todas las cards */
 .itemList {
+  width: 100%;
   display: flex;
-  flex-wrap: wrap;       /* permite que bajen de línea */
-  gap: 16px;             /* espacio entre cards */
-  justify-content: center; /* opcional, queda más prolijo */
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
   padding: 10px;
+  border-radius: 3px;
 }
 
-/* Cada card individual */
+
 .itemCard {
-  width: 200px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  text-align: center;
+  flex: 1 1 200px;
+  max-width: 240px;
+  padding: 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  transition: transform .15s ease, box-shadow .15s ease;
   display: flex;
-  flex-direction: column; /* más lógico para contenido interno */
+  flex-direction: column;
+  align-items: center; 
+  text-align: center;
   box-sizing: border-box;
+}
+
+.itemCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+.img-product {
+  height: 120px;
+  width: 100%;
+  max-width: 150px;
+  object-fit: contain;
+  border-radius: 2px;
 }

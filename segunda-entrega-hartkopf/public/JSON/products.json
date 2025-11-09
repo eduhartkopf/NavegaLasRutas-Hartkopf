@@ -7,7 +7,7 @@
     "category": "Skate",
     "price": 89990,
     "stock": 12,
-    "image": "https://images.unsplash.com/photo-1606813902773-5dfc6a36c6b5"
+    "image": "../../images/Items/item1.jpg"
   },
   {
     "id": 2,
@@ -17,7 +17,7 @@
     "category": "Longboard",
     "price": 125000,
     "stock": 7,
-    "image": "https://images.unsplash.com/photo-1504215680853-026ed2a45def"
+    "image": "../../images/Items/item2.jpg"
   },
   {
     "id": 3,
@@ -27,7 +27,7 @@
     "category": "Rollers",
     "price": 102500,
     "stock": 15,
-    "image": "https://images.unsplash.com/photo-1600959907703-3d27b44a1b12"
+    "image": "../../images/Items/item3.jpg"
   },
   {
     "id": 4,
@@ -37,7 +37,7 @@
     "category": "Skate",
     "price": 85900,
     "stock": 10,
-    "image": "https://images.unsplash.com/photo-1520975918318-3e6c07b3d3a5"
+    "image": "../../images/Items/item4.jpg"
   },
   {
     "id": 5,
@@ -47,7 +47,7 @@
     "category": "Longboard",
     "price": 155000,
     "stock": 5,
-    "image": "https://images.unsplash.com/photo-1571078922765-69b41c826b08"
+    "image": "../../images/Items/item5.jpg"
   },
   {
     "id": 6,
@@ -57,7 +57,7 @@
     "category": "Rollers",
     "price": 87900,
     "stock": 18,
-    "image": "https://images.unsplash.com/photo-1603366615917-1fa6dad5c79a"
+    "image": "../../images/Items/item6.jpg"
   },
   {
     "id": 7,
@@ -67,7 +67,7 @@
     "category": "Skate",
     "price": 79900,
     "stock": 20,
-    "image": "https://images.unsplash.com/photo-1526413232641-85c3b51c9d79"
+    "image": "../../images/Items/item7.jpg"
   },
   {
     "id": 8,
@@ -77,7 +77,7 @@
     "category": "Longboard",
     "price": 139900,
     "stock": 9,
-    "image": "https://images.unsplash.com/photo-1597352447868-9d25efb25b17"
+    "image": "../../images/Items/item8.jpg"
   },
   {
     "id": 9,
@@ -87,7 +87,7 @@
     "category": "Rollers",
     "price": 110000,
     "stock": 8,
-    "image": "https://images.unsplash.com/photo-1629728837293-01b92c212b6a"
+    "image": "../../images/Items/item9.jpg"
   },
   {
     "id": 10,
@@ -97,7 +97,7 @@
     "category": "Skate",
     "price": 95000,
     "stock": 14,
-    "image": "https://images.unsplash.com/photo-1518131678677-975f7f062afc"
+    "image": "../../images/Items/item10.jpg"
   },
   {
     "id": 11,
@@ -107,7 +107,7 @@
     "category": "Longboard",
     "price": 112000,
     "stock": 11,
-    "image": "https://images.unsplash.com/photo-1598575436428-d8c7a55a8a61"
+    "image": "../../images/Items/item11.jpg"
   },
   {
     "id": 12,
@@ -117,7 +117,7 @@
     "category": "Rollers",
     "price": 89900,
     "stock": 16,
-    "image": "https://images.unsplash.com/photo-1600959908141-83ef9f784b45"
+    "image": "../../images/Items/item12.jpg"
   },
   {
     "id": 13,
@@ -127,7 +127,7 @@
     "category": "Skate",
     "price": 65900,
     "stock": 25,
-    "image": "https://images.unsplash.com/photo-1588081375572-5f85f02d0d25"
+    "image": "../../images/Items/item13.jpg"
   },
   {
     "id": 14,
@@ -137,7 +137,7 @@
     "category": "Longboard",
     "price": 128000,
     "stock": 6,
-    "image": "https://images.unsplash.com/photo-1611078489935-0d27b41e26f3"
+    "image": "../../images/Items/item14.jpg"
   },
   {
     "id": 15,
@@ -147,7 +147,7 @@
     "category": "Rollers",
     "price": 83500,
     "stock": 13,
-    "image": "https://images.unsplash.com/photo-1629728837293-01b92c212b6a"
+    "image": "../../images/Items/item15.jpg"
   },
   {
     "id": 16,
@@ -157,7 +157,7 @@
     "category": "Skate",
     "price": 145000,
     "stock": 4,
-    "image": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7"
+    "image": "../../images/Items/item16.jpg"
   },
   {
     "id": 17,
@@ -167,7 +167,7 @@
     "category": "Longboard",
     "price": 295000,
     "stock": 3,
-    "image": "https://images.unsplash.com/photo-1593642634315-48f5414c3ad9"
+    "image": "../../images/Items/item17.jpg"
   },
   {
     "id": 18,
@@ -177,7 +177,7 @@
     "category": "Rollers",
     "price": 74900,
     "stock": 20,
-    "image": "https://images.unsplash.com/photo-1577919518834-3eafc9d0b33a"
+    "image": "../../images/Items/item18.jpg"
   },
   {
     "id": 19,
@@ -187,7 +187,7 @@
     "category": "Skate",
     "price": 99000,
     "stock": 8,
-    "image": "https://images.unsplash.com/photo-1569396116180-210c8777b4c8"
+    "image": "../../images/Items/item19.jpg"
   },
   {
     "id": 20,
@@ -197,6 +197,6 @@
     "category": "Longboard",
     "price": 189000,
     "stock": 5,
-    "image": "https://images.unsplash.com/photo-1626721109291-bb5b8671d6bb"
+    "image": "../../images/Items/item20.jpg"
   }
 ]

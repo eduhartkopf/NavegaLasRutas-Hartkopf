@@ -25,6 +25,7 @@ function ItemList() {
       {products.map((product) => (
         <div key={product.id} className="itemCard">
           <img
+            className="img-product"
             src={product.image}
             alt={product.title}
             style={{ maxWidth: 120 }}
@@ -32,7 +33,6 @@ function ItemList() {
           <h3>{product.title}</h3>
           <p>{product.short_description}</p>
 
-          {/* El botón te lleva al detalle real */}
           <Link to={`/products/${product.id}`}>Ver detalle</Link>
         </div>
       ))}

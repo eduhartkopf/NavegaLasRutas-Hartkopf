@@ -6,9 +6,14 @@ import { Key } from "lucide-react";
 import { NavLink } from "react-router-dom";
 const NavBar = () => {
   return (
-    <nav>
-      <h1>Ramp & Roll</h1>
-      <ul>
+    <nav className="inicio">
+      <img
+        className="logo"
+        alt="logo"
+        src="../../../images/Items/logoSkateProyectoreact.png"
+      />
+      <h1 classNAme="h1">Ramp & Roll</h1>
+      <ul className="NavBar">
         <li>Categorias</li>
         <li>
           <NavLink to="/src/Pages/Contact.jsx">Contactos</NavLink>
