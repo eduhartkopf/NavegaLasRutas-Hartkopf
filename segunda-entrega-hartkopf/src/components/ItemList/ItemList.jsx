@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import "./ItemList.css";
 
 function ItemList() {
   const [products, setProducts] = useState([]);
+  const { categoryId } = useParams();
 
   useEffect(() => {
     const itemData = async () => {
       try {
-        const response = await fetch("/JSON/products.json");
+        const response = await fetch("/products.json");
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
         const data = await response.json();
         setProducts(data);
@@ -16,24 +17,27 @@ function ItemList() {
         console.error("error en fetch:", error);
       }
     };
-
     itemData();
   }, []);
 
+  const filteredProducts = categoryId
+    ? products.filter(
+        (p) => p.category.toLowerCase() === categoryId.toLowerCase()
+      )
+    : products;
+
   return (
     <div className="itemList">
-      {products.map((product) => (
+      {filteredProducts.map((product) => (
         <div key={product.id} className="itemCard">
           <img
             className="img-product"
             src={product.image}
             alt={product.title}
-            style={{ maxWidth: 120 }}
           />
           <h3>{product.title}</h3>
           <p>{product.short_description}</p>
-
-          <Link to={`/products/${product.id}`}>Ver detalle</Link>
+          <Link to={`/products/${product.id}`}>Ver Producto</Link>
         </div>
       ))}
     </div>

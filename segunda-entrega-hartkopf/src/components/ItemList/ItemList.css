@@ -8,20 +8,22 @@
   border-radius: 3px;
 }
 
-
 .itemCard {
   flex: 1 1 200px;
   max-width: 240px;
   padding: 12px;
-  border: 1px solid #e0e0e0;
+  border: 1px solid rgb(224, 224, 224);
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.06);
   transition: transform .15s ease, box-shadow .15s ease;
+
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center; 
   text-align: center;
   box-sizing: border-box;
+  min-height: 300px;
 }
 
 .itemCard:hover {
@@ -35,4 +37,28 @@
   max-width: 150px;
   object-fit: contain;
   border-radius: 2px;
+  margin-bottom: 10px;
+}
+
+.itemCard h3 {
+  margin: 10px 0 5px;
+  font-size: 1.1rem;
+}
+
+.itemCard p {
+  font-size: 0.9rem;
+  color: rgb(85, 85, 85);
+  margin-bottom: 10px;
+}
+
+.itemCard a {
+  margin-top: auto; 
+  text-decoration: none;
+  color: #2a7a2a;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.itemCard a:hover {
+  color: #1f5d1f;
 }

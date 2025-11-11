@@ -3,7 +3,7 @@ import { ShoppingCart } from "lucide-react";
 
 function Cart() {
   return (
-    <div>
+ <div className="cart-wrapper">
       <ShoppingCart />
     </div>
   );

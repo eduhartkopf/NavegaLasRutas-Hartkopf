@@ -1,29 +1,45 @@
 import "./ItemDetail.css";
 import ItemCounter from "../ItemCounter/ItemCounter";
 import ButtonPrimary from "../ButtonPrimary/ButtonPrimary";
-import { ShoppingBasket, List } from "lucide-react";
-import { Link } from "react-router-dom";
+import { ShoppingBasket } from "lucide-react";
 
 function ItemDetail({ product } = {}) {
   if (!product) {
-    return <div className="itemDetail">Producto no seleccionado.</div>;
+    return <div className="itemDetail__empty">Producto no seleccionado.</div>;
   }
 
-  console.log("ItemDetail product:", product); // ✅ Fuera del JSX
-
   return (
-    <div className="productDetail">
+    <div className="itemDetail__container">
+      <div className="itemDetail__card">
+      
+        <img
+          src={product.image}
+          alt={`Imagen de ${product.title}`}
+          className="itemDetail__image"
+        />
 
-      <img src={product.image} alt={product.title} style={{ maxWidth: 180 }} />
-      <h3>{product.title}</h3>
-      <p>{product.short_description}</p>
-      <ItemCounter stock={product.stock} /> {/* ✅ Ahora sí se renderiza */}
-      <span className="price">${(product.price / 100).toFixed(2)} ARG</span>
-      <div>
-        <ButtonPrimary>
-          Ir al Carrito
-          <ShoppingBasket />
-        </ButtonPrimary>
+       
+        <h2 className="itemDetail__title">{product.title}</h2>
+
+       
+        <p className="itemDetail__description">{product.long_description}</p>
+
+       
+        <div className="itemDetail__counter">
+          <ItemCounter stock={product.stock} />
+        </div>
+
+      
+        <span className="itemDetail__price">
+          ${(product.price / 100).toFixed(2)} ARG
+        </span>
+
+      
+        <div className="itemDetail__actions">
+          <ButtonPrimary>
+            Ir al Carrito <ShoppingBasket size={20} />
+          </ButtonPrimary>
+        </div>
       </div>
     </div>
   );
