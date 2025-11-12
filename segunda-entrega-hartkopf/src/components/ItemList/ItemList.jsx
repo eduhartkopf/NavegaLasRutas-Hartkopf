@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import "./ItemList.css";
+import { ShoppingBasket } from "lucide-react";
+import ButtonPrimary from "../ButtonPrimary/ButtonPrimary";
 
 function ItemList() {
   const [products, setProducts] = useState([]);
@@ -37,7 +39,17 @@ function ItemList() {
           />
           <h3>{product.title}</h3>
           <p>{product.short_description}</p>
-          <Link to={`/products/${product.id}`}>Ver Producto</Link>
+          <div className="buttons">
+            <Link to={`/products/${product.id}`}>
+              <ButtonPrimary>Ver Producto</ButtonPrimary>
+            </Link>
+
+            <Link to="/cart">
+              <ButtonPrimary>
+                Agregar al Carrito <ShoppingBasket size={18} />
+              </ButtonPrimary>
+            </Link>
+          </div>
         </div>
       ))}
     </div>
