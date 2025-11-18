@@ -2,8 +2,15 @@ import "./ItemDetail.css";
 import ItemCounter from "../ItemCounter/ItemCounter";
 import ButtonPrimary from "../ButtonPrimary/ButtonPrimary";
 import { ShoppingBasket } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 function ItemDetail({ product } = {}) {
+  const navigate = useNavigate();
+
+  const goHome = () => {
+    navigate("/");
+  };
+
   if (!product) {
     return <div className="itemDetail__empty">Producto no seleccionado.</div>;
   }
@@ -34,6 +41,9 @@ function ItemDetail({ product } = {}) {
             Agregar al Carrito <ShoppingBasket size={20} />
           </ButtonPrimary>
         </div>
+        <button className="backButton" onClick={goHome}>
+          ← Volver al inicio
+        </button>
       </div>
     </div>
   );

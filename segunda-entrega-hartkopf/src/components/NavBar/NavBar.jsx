@@ -44,15 +44,6 @@ const NavBar = () => {
                   </li>
                 ))}
                 
-                <li
-                  className="dropdown-item"
-                  onClick={() => {
-                    navigate("/");
-                    setIsOpen(false);
-                  }}
-                >
-                  Home
-                </li>
               </ul>
             )}
           </li>
