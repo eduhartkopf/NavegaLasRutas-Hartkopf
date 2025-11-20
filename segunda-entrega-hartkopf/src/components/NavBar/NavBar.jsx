@@ -4,10 +4,15 @@ import ButtonPrimary from "../ButtonPrimary/ButtonPrimary";
 import React, { useState } from "react";
 import { Key } from "lucide-react";
 import { NavLink, useNavigate } from "react-router-dom";
+import ButtonTheme from "../ButtonTheme/ButtonTheme";
+import { useContext } from "react";
+import { ThemeContext } from "../../context/ThemeContext";
 
 const NavBar = () => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
+
+  const { dark, changeTheme } = useContext(ThemeContext);
 
   const categories = ["Skate", "Longboard", "Rollers"];
 
@@ -17,7 +22,7 @@ const NavBar = () => {
   };
 
   return (
-    <nav className="inicio">
+    <nav className={`inicio ${dark ? "dark" : "light"}`}>
       <div className="left-block">
         <img
           className="logo"
@@ -43,7 +48,6 @@ const NavBar = () => {
                     {cat}
                   </li>
                 ))}
-                
               </ul>
             )}
           </li>
@@ -51,6 +55,7 @@ const NavBar = () => {
           <li>
             <NavLink to="/contact">Contactos</NavLink>
           </li>
+          <ButtonTheme changeTheme={changeTheme} dark={dark} />
 
           <ButtonPrimary className="login-button">
             Login <Key />

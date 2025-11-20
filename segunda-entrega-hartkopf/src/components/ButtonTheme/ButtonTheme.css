@@ -1,0 +1,18 @@
+.theme-button {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0px;   
+}
+
+.theme-button svg {
+  width: 35px;
+  height: 35px;
+  stroke: white !important;
+
+}

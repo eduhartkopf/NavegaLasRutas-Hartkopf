@@ -1,0 +1,11 @@
+.light.inicio {
+  background-image: url("/images/Items/logoPortada.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.dark.inicio {
+  background-image: url("/images/Items/portadaDark.jpg");
+  background-size: cover;
+  background-position: center;
+}

@@ -1,12 +1,14 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Link, useParams } from "react-router-dom";
 import "./ItemList.css";
 import { ShoppingBasket } from "lucide-react";
 import ButtonPrimary from "../ButtonPrimary/ButtonPrimary";
+import { ThemeContext } from "../../context/ThemeContext";
 
 function ItemList() {
   const [products, setProducts] = useState([]);
   const { categoryId } = useParams();
+  const { dark, changeTheme } = useContext(ThemeContext);
 
   useEffect(() => {
     const itemData = async () => {
@@ -29,7 +31,7 @@ function ItemList() {
     : products;
 
   return (
-    <div className="itemList">
+    <div className={`itemList ${dark ? "dark" : "light"}`}>
       {filteredProducts.map((product) => (
         <div key={product.id} className="itemCard">
           <img

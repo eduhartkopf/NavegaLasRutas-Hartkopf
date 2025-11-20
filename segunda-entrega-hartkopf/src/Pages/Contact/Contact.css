@@ -1,0 +1,32 @@
+
+.contact-page {
+  text-align: center;
+  padding: 3rem;
+}
+
+.contact-page h2 {
+  font-size: 2rem;
+  color: #222;
+  margin-bottom: 1rem;
+}
+
+.contact-page p {
+  font-size: 1rem;
+  color: #6f6c6c;
+  margin-bottom: 1.5rem;
+}
+
+.btn-home {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #222;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+.btn-home:hover {
+  background-color: #444;
+}

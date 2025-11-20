@@ -1,12 +1,15 @@
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import ItemDetail from "../components/ItemDetail/ItemDetail";
 import NotFound from "../components/NotFound/NotFound";
+import { ThemeContext } from "../context/ThemeContext";
+
 
 function ProductsDetail() {
   const { productId } = useParams();
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
+  const { dark } = useContext(ThemeContext);
 
   useEffect(() => {
     fetch("/products.json")
@@ -28,7 +31,11 @@ function ProductsDetail() {
   if (loading) return <p>Cargando...</p>;
   if (!product) return <NotFound />;
 
-  return <ItemDetail product={product} />;
+  return (
+    <div className={dark ? "dark" : "light"}>
+      <ItemDetail product={product} />
+    </div>
+  );
 }
 
 export default ProductsDetail;

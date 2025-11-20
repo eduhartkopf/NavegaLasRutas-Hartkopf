@@ -1,13 +1,18 @@
 import React from "react";
 import "./NotFound.css";
 import { Link } from "react-router-dom";
+import { ThemeContext } from "../../context/ThemeContext";
 
 function NotFound() {
+  const { dark, changeTheme } = useContext(ThemeContext);
+
   return (
-    <div className="not-found">
+    <div className={`not-found ${dark ? "dark" : "light"}`}>
       <h2>Página no encontrada</h2>
       <p>La ruta solicitada no existe.</p>
-       <Link to="/" className="btn-home">Volver al inicio</Link>
+      <Link to="/" className="btn-home">
+        Volver al inicio
+      </Link>
     </div>
   );
 }
