@@ -1,5 +1,5 @@
 import "./NavBar.css";
-import Cart from "../Cart/Cart";
+import CartWidget from "../CartWidget/CartWidget.jsx";
 import ButtonPrimary from "../ButtonPrimary/ButtonPrimary";
 import React, { useState } from "react";
 import { Key } from "lucide-react";
@@ -62,7 +62,8 @@ const NavBar = () => {
           </ButtonPrimary>
         </ul>
       </div>
-      <Cart />
+      <CartWidget />
+
     </nav>
   );
 };

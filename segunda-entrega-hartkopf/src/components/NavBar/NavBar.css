@@ -1,4 +1,3 @@
-
 .inicio .NavBar {
   background-color: transparent !important;
   border: none !important;
@@ -19,10 +18,18 @@
   background-position: center;
 }
 
-.dark .inicio .NavBar {
-  background-color: var(--bg-nav);
+.dark .inicio {
+  background-image: url("/images/Items/portadaDark.jpg");
 }
 
+.dark .inicio .NavBar {
+  background-color: var(--bg-nav);
+
+}
+
+.dark .itemList {
+  background-color: black;
+}
 
 nav.inicio .logo {
   width: 200px;
@@ -31,10 +38,14 @@ nav.inicio .logo {
 }
 
 .h1 {
-  margin-top: -100px;
+  margin-top: -50px;
   margin-left: -20px;
   font-size: 3rem;
   color: white;
+}
+
+.dark .h1 {
+  color: black;
 }
 
 .left-block {
@@ -64,12 +75,11 @@ nav.inicio .logo {
 
 .NavBar li,
 .NavBar a {
- color: white !important;
+  color: white !important;
   text-decoration: none;
   font-weight: 600;
   padding-top: 20px;
 }
-
 
 
 .dropdown {
@@ -109,5 +119,5 @@ nav.inicio .logo {
 
 .login-button {
   margin-left: 30px;
-   color: white !important;
+  color: white !important;
 }

@@ -1,7 +1,10 @@
-
 .contact-page {
   text-align: center;
   padding: 3rem;
+}
+
+.dark .contact-page {
+  background-color: black;
 }
 
 .contact-page h2 {
@@ -9,6 +12,11 @@
   color: #222;
   margin-bottom: 1rem;
 }
+
+.dark .contact-page h2 {
+  color: grey;
+}
+
 
 .contact-page p {
   font-size: 1rem;

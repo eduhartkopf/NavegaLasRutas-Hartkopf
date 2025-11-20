@@ -4,11 +4,13 @@ import "./ItemList.css";
 import { ShoppingBasket } from "lucide-react";
 import ButtonPrimary from "../ButtonPrimary/ButtonPrimary";
 import { ThemeContext } from "../../context/ThemeContext";
+import { CartContext } from "../../context/CartContext/CartContext.jsx";
 
 function ItemList() {
   const [products, setProducts] = useState([]);
   const { categoryId } = useParams();
-  const { dark, changeTheme } = useContext(ThemeContext);
+  const { dark } = useContext(ThemeContext);
+  const { addCartProduct } = useContext(CartContext);
 
   useEffect(() => {
     const itemData = async () => {
@@ -46,11 +48,16 @@ function ItemList() {
               <ButtonPrimary>Ver Producto</ButtonPrimary>
             </Link>
 
-            <Link to="/cart">
-              <ButtonPrimary>
-                Agregar al Carrito <ShoppingBasket size={18} />
-              </ButtonPrimary>
-            </Link>
+            <ButtonPrimary
+              onClick={() =>
+                addCartProduct({
+                  ...product,
+                  quantity: 1,
+                })
+              }
+            >
+              Agregar al Carrito <ShoppingBasket size={18} />
+            </ButtonPrimary>
           </div>
         </div>
       ))}

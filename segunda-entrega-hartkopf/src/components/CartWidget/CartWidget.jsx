@@ -1,16 +1,17 @@
-import "./Cart.css";
+import "./CartWidget.css";
 import { ShoppingCart } from "lucide-react";
 import { useContext } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
+import { Link } from "react-router-dom";
 
-function Cart() {
+function CartWidget() {
   const { dark } = useContext(ThemeContext);
 
   return (
-    <div className={`cart-wrapper ${dark ? "dark" : "light"}`}>
+    <Link to="/cart" className={`cart-wrapper ${dark ? "dark" : "light"}`}>
       <ShoppingCart />
-    </div>
+    </Link>
   );
 }
 
-export default Cart;
+export default CartWidget;
