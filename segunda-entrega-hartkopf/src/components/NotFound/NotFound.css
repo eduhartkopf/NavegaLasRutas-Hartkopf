@@ -1,11 +1,11 @@
-/* estilos generales */
+
 .not-found {
   text-align: center;
   padding: 3rem;
   transition: background-color 0.3s, color 0.3s;
 }
 
-/* estilos del botón */
+
 .btn-home {
   display: inline-block;
   margin-top: 1rem;
@@ -21,7 +21,6 @@
   background-color: #444;
 }
 
-/* Modo light */
 .light.not-found {
   background-color: #f5f5f5;
   color: #222;
@@ -36,7 +35,6 @@
   background-color: #444;
 }
 
-/* Modo dark */
 .dark.not-found {
   background-color: #121212;
   color: #eee;

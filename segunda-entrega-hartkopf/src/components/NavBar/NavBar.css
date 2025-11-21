@@ -121,3 +121,10 @@ nav.inicio .logo {
   margin-left: 30px;
   color: white !important;
 }
+
+.dropdown-item.back-home {
+  border-top: 1px solid #020202;
+  padding-top: 10px;
+  margin-top: 8px;
+  font-weight: 600;
+}

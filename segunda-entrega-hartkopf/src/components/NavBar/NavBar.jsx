@@ -48,6 +48,16 @@ const NavBar = () => {
                     {cat}
                   </li>
                 ))}
+          <li
+  className="dropdown-item back-home"
+  onClick={() => {
+    navigate("/");
+    setIsOpen(false);
+  }}
+>
+  ← Volver al inicio
+</li>
+
               </ul>
             )}
           </li>
@@ -63,7 +73,6 @@ const NavBar = () => {
         </ul>
       </div>
       <CartWidget />
-
     </nav>
   );
 };

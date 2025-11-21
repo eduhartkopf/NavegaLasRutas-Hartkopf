@@ -4,7 +4,7 @@ import { ThemeContext } from "../../context/ThemeContext";
 import { useContext } from "react";
 
 function Login() {
-  const { dark, changeTheme } = useContext(ThemeContext);
+  const { dark } = useContext(ThemeContext);
 
   return (
     <div className={`login-page ${dark ? "dark" : "light"}`}>

@@ -6,25 +6,30 @@ import { useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
 import { CartContext } from "../../context/CartContext/CartContext";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function ItemDetail({ product }) {
   const navigate = useNavigate();
   const { dark } = useContext(ThemeContext);
   const { addCartProduct } = useContext(CartContext);
-
   const [count, setCount] = useState(1);
+
+  if (!product) return <div>Producto no seleccionado.</div>;
 
   const handleAddCartProduct = () => {
     const newCartProduct = {
       id: product.id,
       quantity: count,
     };
-    addCartProduct(newCartProduct);
-  };
 
-  if (!product) {
-    return <div className="itemDetail__empty">Producto no seleccionado.</div>;
-  }
+    addCartProduct(newCartProduct);
+
+    toast.success("Producto agregado al carrito 🛒✨", {
+      position: "top-right",
+      autoClose: 1500,
+    });
+  };
 
   return (
     <div className={`itemDetail__container ${dark ? "dark" : "light"}`}>
@@ -57,7 +62,7 @@ function ItemDetail({ product }) {
           </ButtonPrimary>
         </div>
 
-        <button className="backButton" onClick={navigate.bind(null, "/")}>
+        <button className="backButton" onClick={() => navigate("/")}>
           ← Volver al inicio
         </button>
       </div>

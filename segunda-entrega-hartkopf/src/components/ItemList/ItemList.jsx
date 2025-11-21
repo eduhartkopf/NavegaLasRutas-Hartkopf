@@ -5,6 +5,8 @@ import { ShoppingBasket } from "lucide-react";
 import ButtonPrimary from "../ButtonPrimary/ButtonPrimary";
 import { ThemeContext } from "../../context/ThemeContext";
 import { CartContext } from "../../context/CartContext/CartContext.jsx";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function ItemList() {
   const [products, setProducts] = useState([]);
@@ -32,6 +34,18 @@ function ItemList() {
       )
     : products;
 
+  const handleAddCart = (product) => {
+    addCartProduct({
+      ...product,
+      quantity: 1,
+    });
+
+    toast.success("Producto agregado al carrito 🛒✨", {
+      position: "top-right",
+      autoClose: 1500,
+    });
+  };
+
   return (
     <div className={`itemList ${dark ? "dark" : "light"}`}>
       {filteredProducts.map((product) => (
@@ -48,14 +62,7 @@ function ItemList() {
               <ButtonPrimary>Ver Producto</ButtonPrimary>
             </Link>
 
-            <ButtonPrimary
-              onClick={() =>
-                addCartProduct({
-                  ...product,
-                  quantity: 1,
-                })
-              }
-            >
+            <ButtonPrimary onClick={() => handleAddCart(product)}>
               Agregar al Carrito <ShoppingBasket size={18} />
             </ButtonPrimary>
           </div>

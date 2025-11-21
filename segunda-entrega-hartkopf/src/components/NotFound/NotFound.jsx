@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./NotFound.css";
 import { Link } from "react-router-dom";
 import { ThemeContext } from "../../context/ThemeContext";
 
 function NotFound() {
-  const { dark, changeTheme } = useContext(ThemeContext);
+  const { dark } = useContext(ThemeContext);
 
   return (
     <div className={`not-found ${dark ? "dark" : "light"}`}>

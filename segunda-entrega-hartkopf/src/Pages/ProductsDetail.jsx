@@ -4,7 +4,6 @@ import ItemDetail from "../components/ItemDetail/ItemDetail";
 import NotFound from "../components/NotFound/NotFound";
 import { ThemeContext } from "../context/ThemeContext";
 
-
 function ProductsDetail() {
   const { productId } = useParams();
   const [product, setProduct] = useState(null);
@@ -18,7 +17,7 @@ function ProductsDetail() {
         return res.json();
       })
       .then((data) => {
-        const found = data.find((p) => p.id === Number(productId));
+        const found = data.find((p) => Number(p.id) === Number(productId));
         setProduct(found || null);
       })
       .catch((err) => {
@@ -39,3 +38,4 @@ function ProductsDetail() {
 }
 
 export default ProductsDetail;
+

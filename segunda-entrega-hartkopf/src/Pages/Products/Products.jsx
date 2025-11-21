@@ -5,7 +5,7 @@ import { ThemeContext } from "../../context/ThemeContext";
 import { useContext } from "react";
 
 function Products() {
-  const { dark, changeTheme } = useContext(ThemeContext);
+  const { dark } = useContext(ThemeContext);
 
   return (
     <div className={dark ? "dark" : "light"}>
