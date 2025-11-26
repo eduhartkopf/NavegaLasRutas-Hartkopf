@@ -1,10 +1,8 @@
-
 .not-found {
   text-align: center;
   padding: 3rem;
   transition: background-color 0.3s, color 0.3s;
 }
-
 
 .btn-home {
   display: inline-block;
@@ -24,15 +22,6 @@
 .light.not-found {
   background-color: #f5f5f5;
   color: #222;
-}
-
-.light.not-found .btn-home {
-  background-color: #222;
-  color: white;
-}
-
-.light.not-found .btn-home:hover {
-  background-color: #444;
 }
 
 .dark.not-found {

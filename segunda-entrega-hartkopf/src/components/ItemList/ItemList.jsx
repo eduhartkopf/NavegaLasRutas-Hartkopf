@@ -6,26 +6,43 @@ import ButtonPrimary from "../ButtonPrimary/ButtonPrimary";
 import { ThemeContext } from "../../context/ThemeContext";
 import { CartContext } from "../../context/CartContext/CartContext.jsx";
 import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import ItemCounter from "../ItemCounter/ItemCounter.jsx";
+import { app } from "../../firebase.js";
+import { getFirestore, collection, getDocs } from "firebase/firestore";
 
 function ItemList() {
   const [products, setProducts] = useState([]);
   const { categoryId } = useParams();
-  const { dark } = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
   const { addCartProduct } = useContext(CartContext);
+  const [quantities, setQuantities] = useState({});
+
+  const handleQuantityChange = (id, value) => {
+    setQuantities((prev) => ({
+      ...prev,
+      [id]: value,
+    }));
+  };
 
   useEffect(() => {
-    const itemData = async () => {
+    const fetchItems = async () => {
       try {
-        const response = await fetch("/products.json");
-        if (!response.ok) throw new Error(`HTTP ${response.status}`);
-        const data = await response.json();
-        setProducts(data);
+        const db = getFirestore(app);
+        const itemsCollection = collection(db, "Items");
+        const snapshot = await getDocs(itemsCollection);
+
+        const itemsList = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+
+        setProducts(itemsList);
       } catch (error) {
-        console.error("error en fetch:", error);
+        console.error("Error al obtener items:", error);
       }
     };
-    itemData();
+
+    fetchItems();
   }, []);
 
   const filteredProducts = categoryId
@@ -35,28 +52,36 @@ function ItemList() {
     : products;
 
   const handleAddCart = (product) => {
-    addCartProduct({
-      ...product,
-      quantity: 1,
-    });
+    const selectedQuantity = quantities[product.id] || 1;
 
-    toast.success("Producto agregado al carrito 🛒✨", {
-      position: "top-right",
-      autoClose: 1500,
-    });
+    addCartProduct({ ...product, quantity: selectedQuantity });
+
+    toast.success(
+      `Producto "${product.title}" agregado al carrito ×${selectedQuantity} 🛒✨`,
+      {
+        position: "top-right",
+        autoClose: 1500,
+      }
+    );
   };
 
   return (
-    <div className={`itemList ${dark ? "dark" : "light"}`}>
+    <div className={`itemList ${theme}`}>
       {filteredProducts.map((product) => (
         <div key={product.id} className="itemCard">
-          <img
-            className="img-product"
-            src={product.image}
-            alt={product.title}
-          />
+          <img className="img-product" src={product.img} alt={product.title} />
+
           <h3>{product.title}</h3>
           <p>{product.short_description}</p>
+
+          <p className="price">${product.price}</p>
+
+          <ItemCounter
+            stock={product.stock}
+            className="counter-card"
+            onChange={(value) => handleQuantityChange(product.id, value)}
+          />
+
           <div className="buttons">
             <Link to={`/products/${product.id}`}>
               <ButtonPrimary>Ver Producto</ButtonPrimary>

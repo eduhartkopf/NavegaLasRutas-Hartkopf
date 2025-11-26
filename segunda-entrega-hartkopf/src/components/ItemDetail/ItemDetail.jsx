@@ -7,23 +7,19 @@ import { useContext, useState } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
 import { CartContext } from "../../context/CartContext/CartContext";
 import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
 function ItemDetail({ product }) {
   const navigate = useNavigate();
-  const { dark } = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
   const { addCartProduct } = useContext(CartContext);
+
   const [count, setCount] = useState(1);
 
-  if (!product) return <div>Producto no seleccionado.</div>;
-
   const handleAddCartProduct = () => {
-    const newCartProduct = {
-      id: product.id,
+    addCartProduct({
+      ...product,
       quantity: count,
-    };
-
-    addCartProduct(newCartProduct);
+    });
 
     toast.success("Producto agregado al carrito 🛒✨", {
       position: "top-right",
@@ -31,30 +27,27 @@ function ItemDetail({ product }) {
     });
   };
 
+  if (!product)
+    return <div className="itemDetail__empty">Producto no seleccionado.</div>;
+
   return (
-    <div className={`itemDetail__container ${dark ? "dark" : "light"}`}>
-      <div>
+    <div className={`itemDetail__container ${theme}`}>
+      <div className="itemDetail__card">
         <img
-          src={product.image}
+          src={product.img}
           alt={product.title}
           className="itemDetail__image"
         />
 
-        <h2 className={`itemDetail__title ${dark ? "dark" : "light"}`}>
-          {product.title}
-        </h2>
+        <h2 className="itemDetail__title">{product.title}</h2>
 
-        <p className={`itemDetail__description ${dark ? "dark" : "light"}`}>
-          {product.long_description}
-        </p>
+        <p className="itemDetail__description">{product.long_description}</p>
 
         <div className="itemDetail__counter">
           <ItemCounter stock={product.stock} onChange={setCount} />
         </div>
 
-        <span className={`itemDetail__price ${dark ? "dark" : "light"}`}>
-          ${(product.price / 100).toFixed(2)} ARG
-        </span>
+        <span className="itemDetail__price">${product.price} ARG</span>
 
         <div className="itemDetail__actions">
           <ButtonPrimary onClick={handleAddCartProduct}>

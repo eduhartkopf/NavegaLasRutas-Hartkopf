@@ -1,0 +1,19 @@
+.login-page {
+  padding: 40px;
+  text-align: center;
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.login-page.light {
+  background-color: #f8f8f8;
+  color: #222;
+}
+
+.login-page.dark {
+  background-color: #222;
+  color: #f8f8f8;
+}

@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
 
 function ButtonPrimary({ children, onClick, className = "" }) {
-  const { dark } = useContext(ThemeContext);
+  const { dark, changeTheme } = useContext(ThemeContext);
 
   return (
     <button

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import "./NotFound.css";
 import { Link } from "react-router-dom";
 import { ThemeContext } from "../../context/ThemeContext";

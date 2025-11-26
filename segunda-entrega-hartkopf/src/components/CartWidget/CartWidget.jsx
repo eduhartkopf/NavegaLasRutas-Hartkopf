@@ -3,13 +3,17 @@ import { ShoppingCart } from "lucide-react";
 import { useContext } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
 import { Link } from "react-router-dom";
+import { CartContext } from "../../context/CartContext/CartContext"; 
 
 function CartWidget() {
   const { dark } = useContext(ThemeContext);
-
+  const{totalQuantity} = useContext(CartContext);
   return (
-    <Link to="/cart" className={`cart-wrapper ${dark ? "dark" : "light"}`}>
+    <Link to="/cart" className={`${dark ? "dark" : "light"} cart-wrapper`}>
       <ShoppingCart />
+      <span className="counterProduct">
+        {totalQuantity}
+      </span>
     </Link>
   );
 }

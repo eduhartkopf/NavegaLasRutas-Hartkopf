@@ -6,6 +6,8 @@ import "./styles/theme.css";
 import ThemeProvider from "./context/ThemeContext.jsx";
 import ThemeWrapper from "./context/ThemeWrapper.jsx";
 
+
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <StrictMode>
     <ThemeProvider>

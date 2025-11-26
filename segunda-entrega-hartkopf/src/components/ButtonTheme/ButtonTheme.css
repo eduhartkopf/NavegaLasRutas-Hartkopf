@@ -7,12 +7,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 0px;   
+  margin-top: 0px;
+  margin-right: -30px;
 }
 
-.theme-button svg {
-  width: 35px;
-  height: 35px;
-  stroke: white !important;
+.theme-button.light svg {
+  stroke: black !important;
+}
 
+.theme-button.dark svg {
+  stroke: white !important;
 }

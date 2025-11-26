@@ -2,25 +2,34 @@ import { useContext, useEffect, useState } from "react";
 import { ThemeContext } from "../../context/ThemeContext.jsx";
 import { CartContext } from "../../context/CartContext/CartContext.jsx";
 import "./Cart.css";
+import { getFirestore, collection, getDocs } from "firebase/firestore";
+import { app } from "../../firebase";
 
 function Cart() {
   const { dark } = useContext(ThemeContext);
-  const { cart } = useContext(CartContext);
+  const { cart, deleteCartProduct } = useContext(CartContext);
 
   const [productsData, setProductsData] = useState([]);
 
   useEffect(() => {
-    const fetchProducts = async () => {
+    const fetchItems = async () => {
       try {
-        const response = await fetch("/products.json");
-        const data = await response.json();
-        setProductsData(data);
+        const db = getFirestore(app);
+        const itemsCollection = collection(db, "Items");
+        const snapshot = await getDocs(itemsCollection);
+
+        const itemsList = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+
+        setProductsData(itemsList); 
       } catch (error) {
-        console.error("Error cargando products.json:", error);
+        console.error("Error al obtener items:", error);
       }
     };
 
-    fetchProducts();
+    fetchItems();
   }, []);
 
   const detailedCart = cart.map((item) => {
@@ -39,12 +48,24 @@ function Cart() {
           {detailedCart.map((item) =>
             item ? (
               <div key={item.id} className="cart-card">
-                <img src={item.image} width={80} className="cart-card-img" />
+                <img
+                  src={item.img} 
+                  width={80}
+                  className="cart-card-img"
+                />
+
                 <p className="cart-card-price">Precio: ${item.price}</p>
                 <p className="cart-card-qty">Cantidad: {item.quantity}</p>
                 <p className="cart-card-total">
                   Total: ${item.price * item.quantity}
                 </p>
+
+                <button
+                  className="cart-card-delete"
+                  onClick={() => deleteCartProduct(item.id)}
+                >
+                  Eliminar
+                </button>
               </div>
             ) : null
           )}

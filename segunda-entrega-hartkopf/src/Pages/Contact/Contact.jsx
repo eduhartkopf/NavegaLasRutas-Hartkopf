@@ -4,7 +4,7 @@ import { ThemeContext } from "../../context/ThemeContext";
 import { useContext } from "react";
 
 function Contact() {
-  const { dark } = useContext(ThemeContext);
+  const { dark, changeTheme } = useContext(ThemeContext);
 
   return (
     <div className={`contact-page ${dark ? "dark" : "light"}`}>

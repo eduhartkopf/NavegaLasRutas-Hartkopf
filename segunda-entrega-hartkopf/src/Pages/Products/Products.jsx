@@ -8,9 +8,12 @@ function Products() {
   const { dark } = useContext(ThemeContext);
 
   return (
-    <div className={dark ? "dark" : "light"}>
+    <div className={`products-page ${dark ? "dark" : "light"}`}>
       <NavBar />
-      <ItemList />
+
+      <main className="products-container">
+        <ItemList />
+      </main>
     </div>
   );
 }

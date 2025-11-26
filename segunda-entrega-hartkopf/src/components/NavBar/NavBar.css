@@ -1,11 +1,15 @@
-.inicio .NavBar {
+.inicio {
+  min-height: 200px;
+}
+
+nav.inicio.light .NavBar {
   background-color: transparent !important;
   border: none !important;
   box-shadow: none !important;
 }
 
-.light.inicio {
-  background-image: url("/images/Items/portadaLight2.jpg");
+nav.inicio.light {
+  background-image: url("/images/Items/portadaLight2.jpg") !important;
   width: 99%;
   position: relative;
   padding: 20px;
@@ -13,28 +17,32 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  color: var(--text);
   background-size: cover;
   background-position: center;
 }
 
-.dark .inicio {
-  background-image: url("/images/Items/portadaDark.jpg");
+nav.inicio.dark {
+  background-image: url("/images/Items/portadaDark.jpg") !important;
+  min-height: 320px;
 }
 
-.dark .inicio .NavBar {
-  background-color: var(--bg-nav);
-
-}
-
-.dark .itemList {
-  background-color: black;
+nav.inicio.dark .NavBar {
+  background-color: var(--bg-nav) !important;
+  box-shadow: none;
+  border: none;
+  position: absolute;
+  margin-bottom: 605px;
+  margin-right: -20px;
 }
 
 nav.inicio .logo {
   width: 200px;
   height: auto;
   margin-top: -40px;
+}
+
+.dark .itemList {
+  background-color: black;
 }
 
 .h1 {
@@ -54,19 +62,15 @@ nav.inicio .logo {
   gap: 4px;
 }
 
-
-
 .NavBar {
   background-color: var(--bg-nav);
   color: var(--text);
   position: absolute;
   bottom: 0px;
   right: 20px;
-
   display: flex;
   gap: 20px;
   list-style: none;
-
   font-size: 1.2rem;
   padding: 0;
   margin: 0;
@@ -81,6 +85,15 @@ nav.inicio .logo {
   padding-top: 20px;
 }
 
+svg {
+  color: white;
+}
+
+.login-button {
+  margin-left: 20px;
+  color: white !important;
+  position: relative;
+}
 
 .dropdown {
   position: relative;
@@ -91,15 +104,13 @@ nav.inicio .logo {
   position: absolute;
   top: 100%;
   left: 0;
-
   background-color: grey;
   border: 1px solid var(--border);
   border-radius: 6px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-
   list-style: none;
   padding: 8px 0;
-  margin-top: 6px;
+  margin-top: 0%;
   min-width: 150px;
   z-index: 100;
 }
@@ -114,12 +125,6 @@ nav.inicio .logo {
 .dropdown-item:hover {
   background-color: var(--primary);
   color: var(--primary-text);
-}
-
-
-.login-button {
-  margin-left: 30px;
-  color: white !important;
 }
 
 .dropdown-item.back-home {

@@ -1,9 +1,16 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
 export const CartContext = createContext();
 
 export default function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
+  const [totalQuantity, setTotalQuantity] = useState(0);
+
+  useEffect(() => {
+    setTotalQuantity(
+      cart.reduce((accumulator, product) => accumulator + product.quantity, 0)
+    );
+  }, [cart]);
 
   const addCartProduct = (newProduct) => {
     const productSearched = cart.some(
@@ -29,7 +36,9 @@ export default function CartProvider({ children }) {
   };
 
   return (
-    <CartContext.Provider value={{ cart, addCartProduct, deleteCartProduct }}>
+    <CartContext.Provider
+      value={{ cart, totalQuantity, addCartProduct, deleteCartProduct }}
+    >
       {children}
     </CartContext.Provider>
   );

@@ -14,13 +14,13 @@
   padding: 12px;
   border: 1px solid rgb(224, 224, 224);
   border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
   transition: transform .15s ease, box-shadow .15s ease;
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center; 
+  align-items: center;
   text-align: center;
   box-sizing: border-box;
   min-height: 300px;
@@ -28,7 +28,7 @@
 
 .itemCard:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
 }
 
 .img-product {
@@ -52,7 +52,7 @@
 }
 
 .itemCard a {
-  margin-top: auto; 
+  margin-top: auto;
   text-decoration: none;
   color: #2a7a2a;
   font-weight: 600;
@@ -62,4 +62,10 @@
 
 .itemCard a:hover {
   color: #1f5d1f;
+}
+
+.counter-card {
+  margin-top: 10px;
+  margin-bottom: 15px;
+  transform: scale(0.95);
 }

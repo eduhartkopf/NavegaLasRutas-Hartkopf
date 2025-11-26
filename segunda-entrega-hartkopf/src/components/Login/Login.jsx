@@ -1,13 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Login.css";
 import { ThemeContext } from "../../context/ThemeContext";
-import { useContext } from "react";
 
 function Login() {
-  const { dark } = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
 
   return (
-    <div className={`login-page ${dark ? "dark" : "light"}`}>
+    <div className={`login-page ${theme}`}>
       <h2>Login</h2>
       <p>Página de inicio de sesión (placeholder)</p>
     </div>

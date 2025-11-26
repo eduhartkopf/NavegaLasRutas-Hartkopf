@@ -12,7 +12,8 @@ const NavBar = () => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
 
-  const { dark, changeTheme } = useContext(ThemeContext);
+  const { theme, changeTheme } = useContext(ThemeContext);
+
 
   const categories = ["Skate", "Longboard", "Rollers"];
 
@@ -22,7 +23,7 @@ const NavBar = () => {
   };
 
   return (
-    <nav className={`inicio ${dark ? "dark" : "light"}`}>
+    <nav className={`inicio ${theme}`}>
       <div className="left-block">
         <img
           className="logo"
@@ -48,16 +49,15 @@ const NavBar = () => {
                     {cat}
                   </li>
                 ))}
-          <li
-  className="dropdown-item back-home"
-  onClick={() => {
-    navigate("/");
-    setIsOpen(false);
-  }}
->
-  ← Volver al inicio
-</li>
-
+                <li
+                  className="dropdown-item back-home"
+                  onClick={() => {
+                    navigate("/");
+                    setIsOpen(false);
+                  }}
+                >
+                  ← Volver al inicio
+                </li>
               </ul>
             )}
           </li>
@@ -65,7 +65,7 @@ const NavBar = () => {
           <li>
             <NavLink to="/contact">Contactos</NavLink>
           </li>
-          <ButtonTheme changeTheme={changeTheme} dark={dark} />
+          <ButtonTheme changeTheme={changeTheme} dark={theme} />
 
           <ButtonPrimary className="login-button">
             Login <Key />
