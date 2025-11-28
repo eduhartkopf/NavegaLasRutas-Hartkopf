@@ -4,7 +4,7 @@ import "./ItemList.css";
 import { ShoppingBasket } from "lucide-react";
 import ButtonPrimary from "../ButtonPrimary/ButtonPrimary";
 import { ThemeContext } from "../../context/ThemeContext";
-import { CartContext } from "../../context/CartContext/CartContext.jsx";
+import { CartContext } from "../../context/CartContext.jsx";
 import { toast } from "react-toastify";
 import ItemCounter from "../ItemCounter/ItemCounter.jsx";
 import { app } from "../../firebase.js";
@@ -12,6 +12,9 @@ import { getFirestore, collection, getDocs } from "firebase/firestore";
 
 function ItemList() {
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+
   const { categoryId } = useParams();
   const { theme } = useContext(ThemeContext);
   const { addCartProduct } = useContext(CartContext);
@@ -39,17 +42,21 @@ function ItemList() {
         setProducts(itemsList);
       } catch (error) {
         console.error("Error al obtener items:", error);
+        setError(true);
+      } finally {
+        setLoading(false);
       }
     };
 
     fetchItems();
   }, []);
 
-  const filteredProducts = categoryId
-    ? products.filter(
-        (p) => p.category.toLowerCase() === categoryId.toLowerCase()
-      )
-    : products;
+  const filteredProducts =
+    !categoryId || categoryId.toLowerCase() === "all"
+      ? products
+      : products.filter(
+          (p) => p.category.toLowerCase() === categoryId.toLowerCase()
+        );
 
   const handleAddCart = (product) => {
     const selectedQuantity = quantities[product.id] || 1;
@@ -67,32 +74,48 @@ function ItemList() {
 
   return (
     <div className={`itemList ${theme}`}>
-      {filteredProducts.map((product) => (
-        <div key={product.id} className="itemCard">
-          <img className="img-product" src={product.img} alt={product.title} />
+      {loading && <p>Cargando productos...</p>}
 
-          <h3>{product.title}</h3>
-          <p>{product.short_description}</p>
+      {!loading && error && (
+        <p style={{ color: "red" }}>Hubo un error al cargar los productos.</p>
+      )}
 
-          <p className="price">${product.price}</p>
+      {!loading && !error && filteredProducts.length === 0 && (
+        <p>No se encontraron productos para esta categoría.</p>
+      )}
 
-          <ItemCounter
-            stock={product.stock}
-            className="counter-card"
-            onChange={(value) => handleQuantityChange(product.id, value)}
-          />
+      {!loading &&
+        !error &&
+        filteredProducts.map((product) => (
+          <div key={product.id} className="itemCard">
+            <img
+              className="img-product"
+              src={product.img}
+              alt={product.title}
+            />
 
-          <div className="buttons">
-            <Link to={`/products/${product.id}`}>
-              <ButtonPrimary>Ver Producto</ButtonPrimary>
-            </Link>
+            <h3>{product.title}</h3>
+            <p>{product.short_description}</p>
 
-            <ButtonPrimary onClick={() => handleAddCart(product)}>
-              Agregar al Carrito <ShoppingBasket size={18} />
-            </ButtonPrimary>
+            <p className="price">${product.price}</p>
+
+            <ItemCounter
+              stock={product.stock}
+              className="counter-card"
+              onChange={(value) => handleQuantityChange(product.id, value)}
+            />
+
+            <div className="buttons">
+              <Link to={`/products/${product.id}`}>
+                <ButtonPrimary>Ver Producto</ButtonPrimary>
+              </Link>
+
+              <ButtonPrimary onClick={() => handleAddCart(product)}>
+                Agregar al Carrito <ShoppingBasket size={18} />
+              </ButtonPrimary>
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
     </div>
   );
 }

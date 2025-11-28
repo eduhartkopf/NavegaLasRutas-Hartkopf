@@ -5,15 +5,22 @@ import "./index.css";
 import "./styles/theme.css";
 import ThemeProvider from "./context/ThemeContext.jsx";
 import ThemeWrapper from "./context/ThemeWrapper.jsx";
-
-
+import { BrowserRouter } from "react-router-dom";
+import CartProvider from "./context/CartContext.jsx";
+import UserProvider from "./context/UserContext.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <ThemeProvider>
-      <ThemeWrapper>
-        <App />
-      </ThemeWrapper>
-    </ThemeProvider>
+    <BrowserRouter>
+      <ThemeProvider>
+        <ThemeWrapper>
+          <CartProvider>
+            <UserProvider>
+              <App />
+            </UserProvider>
+          </CartProvider>
+        </ThemeWrapper>
+      </ThemeProvider>
+    </BrowserRouter>
   </StrictMode>
 );

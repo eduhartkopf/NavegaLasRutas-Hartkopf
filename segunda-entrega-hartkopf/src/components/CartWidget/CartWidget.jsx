@@ -3,7 +3,7 @@ import { ShoppingCart } from "lucide-react";
 import { useContext } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
 import { Link } from "react-router-dom";
-import { CartContext } from "../../context/CartContext/CartContext"; 
+import { CartContext } from "../../context/CartContext"; 
 
 function CartWidget() {
   const { dark } = useContext(ThemeContext);

@@ -1,9 +1,9 @@
-.login-page {
+.register-page {
   display: flex;
   flex-direction: column;
   gap: 15px;
   width: 320px;
-  margin: 100px auto;
+  margin: 60px auto;
   padding: 30px;
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
@@ -11,7 +11,8 @@
   transition: background 0.3s ease, color 0.3s ease;
 }
 
-.login-page input {
+
+.register-page input {
   padding: 12px;
   border-radius: 10px;
   border: 1px solid var(--border-color);
@@ -22,16 +23,17 @@
   transition: 0.2s;
 }
 
-.login-page input::placeholder {
+.register-page input::placeholder {
   color: var(--placeholder-color);
 }
 
-.login-page input:focus {
+.register-page input:focus {
   border-color: var(--primary-color);
   box-shadow: 0 0 4px var(--primary-color);
 }
 
-.login-page button {
+
+.register-page button {
   padding: 12px;
   border-radius: 10px;
   background: var(--primary-color);
@@ -43,10 +45,11 @@
   transition: 0.2s;
 }
 
-.login-page button:hover {
+.register-page button:hover {
   background: var(--primary-hover);
   transform: scale(1.02);
 }
+
 
 .light {
   --card-bg: #ffffff;

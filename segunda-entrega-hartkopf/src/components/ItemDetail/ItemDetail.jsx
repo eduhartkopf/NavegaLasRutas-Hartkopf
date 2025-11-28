@@ -5,7 +5,7 @@ import { ShoppingBasket } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
-import { CartContext } from "../../context/CartContext/CartContext";
+import { CartContext } from "../../context/CartContext";
 import { toast } from "react-toastify";
 
 function ItemDetail({ product }) {

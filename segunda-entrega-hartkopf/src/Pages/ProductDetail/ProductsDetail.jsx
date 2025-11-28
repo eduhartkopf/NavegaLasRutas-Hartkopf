@@ -6,12 +6,16 @@ import { ThemeContext } from "../../context/ThemeContext";
 import "./ProductDetail.css";
 import { getFirestore, doc, getDoc } from "firebase/firestore";
 import { app } from "../../firebase";
+import { UserContext } from "../../context/UserContext";
+import { useNavigate } from "react-router-dom";
 
 function ProductsDetail() {
   const { productId } = useParams();
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const { theme } = useContext(ThemeContext);
+  const { user } = useContext(UserContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -27,11 +31,11 @@ function ProductsDetail() {
         }
       } catch (error) {
         console.error("Error al obtener producto:", error);
+        setProduct(null);
       } finally {
         setLoading(false);
       }
     };
-
     fetchProduct();
   }, [productId]);
 

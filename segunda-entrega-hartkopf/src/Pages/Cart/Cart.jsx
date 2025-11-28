@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { ThemeContext } from "../../context/ThemeContext.jsx";
-import { CartContext } from "../../context/CartContext/CartContext.jsx";
+import { CartContext } from "../../context/CartContext.jsx";
 import "./Cart.css";
 import { getFirestore, collection, getDocs } from "firebase/firestore";
 import { app } from "../../firebase";
@@ -23,7 +23,7 @@ function Cart() {
           ...doc.data(),
         }));
 
-        setProductsData(itemsList); 
+        setProductsData(itemsList);
       } catch (error) {
         console.error("Error al obtener items:", error);
       }
@@ -48,11 +48,7 @@ function Cart() {
           {detailedCart.map((item) =>
             item ? (
               <div key={item.id} className="cart-card">
-                <img
-                  src={item.img} 
-                  width={80}
-                  className="cart-card-img"
-                />
+                <img src={item.img} width={80} className="cart-card-img" />
 
                 <p className="cart-card-price">Precio: ${item.price}</p>
                 <p className="cart-card-qty">Cantidad: {item.quantity}</p>
