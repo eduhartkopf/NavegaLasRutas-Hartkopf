@@ -35,14 +35,15 @@ nav.inicio.dark .NavBar {
   margin-right: -20px;
 }
 
+
+.dark .itemList {
+  background-color: black;
+}
+
 nav.inicio .logo {
   width: 200px;
   height: auto;
   margin-top: -40px;
-}
-
-.dark .itemList {
-  background-color: black;
 }
 
 .h1 {
@@ -165,4 +166,36 @@ nav.inicio.dark .logout-button:hover {
   padding-top: 10px;
   margin-top: 8px;
   font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background-color: white;
+    flex-direction: column;
+    display: none;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+
+  nav.inicio .logo {
+    width: 200px;
+    height: auto;
+    margin-top: 15px;
+    margin-left: -55px;
+  }
+
+  .h1 {
+    margin-top: 10px;
+    margin-left: -50px;
+    font-size: 3rem;
+    color: white;
+  }
+
 }
