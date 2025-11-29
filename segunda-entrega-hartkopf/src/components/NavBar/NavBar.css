@@ -1,55 +1,45 @@
 .inicio {
-  min-height: 200px;
-}
-
-nav.inicio.light .NavBar {
-  background-color: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
+  min-height: 100px;
+  position: relative;
 }
 
 nav.inicio.light {
-  background-image: url("/images/Items/portadaLight2.jpg") !important;
-  width: 99%;
-  position: relative;
-  padding: 20px;
-  padding-bottom: 100px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  background-image: url("/images/Items/portadaLight.jpg") !important;
   background-size: cover;
   background-position: center;
+  width: 100%;
+  padding: 20px;
+  padding-bottom: 140px;
 }
 
 nav.inicio.dark {
   background-image: url("/images/Items/portadaDark.jpg") !important;
-  min-height: 320px;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  padding: 20px;
+  padding-bottom: 140px;
 }
+
 
 nav.inicio.dark .NavBar {
   background-color: var(--bg-nav) !important;
-  box-shadow: none;
   border: none;
-  position: absolute;
-  margin-bottom: 605px;
-  margin-right: -20px;
+  box-shadow: none;
 }
 
-
-.dark .itemList {
-  background-color: black;
-}
 
 nav.inicio .logo {
-  width: 200px;
+  width: 240px;
   height: auto;
-  margin-top: -40px;
+  margin-top: -30px;
 }
 
+
 .h1 {
-  margin-top: -50px;
+  margin-top: -60px;
   margin-left: -20px;
-  font-size: 3rem;
+  font-size: 3.2rem;
   color: white;
 }
 
@@ -57,26 +47,20 @@ nav.inicio .logo {
   color: black;
 }
 
-.left-block {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
 
 .NavBar {
-  background-color: var(--bg-nav);
-  color: var(--text);
   position: absolute;
-  bottom: 0px;
+  bottom: 0;
   right: 20px;
   display: flex;
   gap: 20px;
   list-style: none;
-  font-size: 1.2rem;
   padding: 0;
   margin: 0;
   z-index: 10;
+  background: transparent;
 }
+
 
 .NavBar li,
 .NavBar a {
@@ -84,50 +68,52 @@ nav.inicio .logo {
   text-decoration: none;
   font-weight: 600;
   padding-top: 20px;
+  font-size: 1.1rem;
 }
 
 svg {
   color: white;
 }
 
-.login-button {
-  margin-left: 20px;
-  color: white !important;
-  position: relative;
-}
-
+.login-button,
 .logout-button {
-  margin-left: 20px;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 6px;
+  margin-left: 30px !important;
   font-weight: 600;
   cursor: pointer;
-  font-size: 1rem;
-  transition: background-color 0.3s ease, color 0.3s ease;
   background-color: transparent;
-  color: white !important;
+  border: none;
+  font-size: 1rem;
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: background 0.2s ease;
 }
 
+nav.inicio.light .NavBar {
+  margin-bottom: 0 !important;
+  margin-right: 20px !important;
+}
+
+nav.inicio.light .login-button,
 nav.inicio.light .logout-button {
-  color: white !important;
   background-color: rgba(0, 0, 0, 0.3);
+  color: white !important;
 }
 
+nav.inicio.light .login-button:hover,
 nav.inicio.light .logout-button:hover {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-
+nav.inicio.dark .login-button,
 nav.inicio.dark .logout-button {
-  color: black !important;
   background-color: rgba(255, 255, 255, 0.6);
+  color: black !important;
 }
 
+nav.inicio.dark .login-button:hover,
 nav.inicio.dark .logout-button:hover {
   background-color: rgba(255, 255, 255, 0.8);
 }
-
 
 .dropdown {
   position: relative;
@@ -139,12 +125,9 @@ nav.inicio.dark .logout-button:hover {
   top: 100%;
   left: 0;
   background-color: grey;
-  border: 1px solid var(--border);
   border-radius: 6px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   list-style: none;
   padding: 8px 0;
-  margin-top: 0%;
   min-width: 150px;
   z-index: 100;
 }
@@ -152,7 +135,6 @@ nav.inicio.dark .logout-button:hover {
 .dropdown-item {
   padding: 8px 16px;
   font-size: 0.95rem;
-  color: var(--primary);
   transition: background 0.2s;
 }
 
@@ -162,13 +144,14 @@ nav.inicio.dark .logout-button:hover {
 }
 
 .dropdown-item.back-home {
-  border-top: 1px solid #020202;
+  border-top: 1px solid black;
   padding-top: 10px;
   margin-top: 8px;
   font-weight: 600;
 }
 
 @media (max-width: 768px) {
+
   .nav-links {
     position: absolute;
     top: 70px;
@@ -183,19 +166,82 @@ nav.inicio.dark .logout-button:hover {
     display: flex;
   }
 
-
   nav.inicio .logo {
     width: 200px;
-    height: auto;
     margin-top: 15px;
     margin-left: -55px;
   }
 
   .h1 {
-    margin-top: 10px;
-    margin-left: -50px;
+    margin-top: 60px;
+    margin-left: 50px;
     font-size: 3rem;
-    color: white;
   }
 
+
+  .NavBar {
+    bottom: 20px;
+    right: 15px;
+    gap: 14px;
+  }
+
+  .NavBar li {
+    padding-top: 10px;
+    font-size: 1rem;
+  }
+
+
+}
+
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+  nav.inicio {
+    padding: 20px;
+    padding-bottom: 130px;
+  }
+
+  nav.inicio .logo {
+    width: 220px;
+    margin-top: -25px;
+    margin-left: -30px;
+  }
+
+  .h1 {
+    margin-top: -50px;
+    margin-left: 200px;
+    font-size: 3.1rem;
+  }
+
+  .NavBar {
+    bottom: 10px;
+    right: 20px;
+    gap: 18px;
+  }
+
+  nav.inicio.dark .NavBar {
+    margin-bottom: 0 !important;
+    margin-right: 20px !important;
+  }
+
+  .NavBar li,
+  .NavBar a {
+    padding-top: 12px;
+    font-size: 1.15rem;
+  }
+
+  svg {
+    width: 26px;
+    height: 26px;
+  }
+
+  .login-button,
+  .logout-button {
+    margin-left: 10px;
+  }
+
+  .dropdown-menu {
+    top: 100%;
+    left: 0;
+  }
 }

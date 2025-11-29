@@ -5,6 +5,7 @@ export const CartContext = createContext();
 export default function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
   const [totalQuantity, setTotalQuantity] = useState(0);
+  const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
     setTotalQuantity(
@@ -12,6 +13,11 @@ export default function CartProvider({ children }) {
     );
   }, [cart]);
 
+  useEffect(() => {
+    setTotalPrice(
+      cart.reduce((acc, product) => acc + product.quantity * product.price, 0)
+    );
+  }, [cart]);
   const addCartProduct = (newProduct) => {
     const productSearched = cart.some(
       (product) => product.id === newProduct.id
@@ -34,10 +40,17 @@ export default function CartProvider({ children }) {
   const deleteCartProduct = (id) => {
     setCart(cart.filter((product) => product.id !== id));
   };
-
+  const clearCart = () => setCart([]);
   return (
     <CartContext.Provider
-      value={{ cart, totalQuantity, addCartProduct, deleteCartProduct }}
+      value={{
+        cart,
+        totalQuantity,
+        totalPrice,
+        addCartProduct,
+        deleteCartProduct,
+        clearCart,
+      }}
     >
       {children}
     </CartContext.Provider>

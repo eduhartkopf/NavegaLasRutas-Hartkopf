@@ -58,6 +58,9 @@ function ItemList() {
           (p) => p.category.toLowerCase() === categoryId.toLowerCase()
         );
 
+        const sortedProducts = [...filteredProducts].sort((a, b) =>
+  a.title.localeCompare(b.title)
+);
   const handleAddCart = (product) => {
     const selectedQuantity = quantities[product.id] || 1;
 
@@ -86,7 +89,8 @@ function ItemList() {
 
       {!loading &&
         !error &&
-        filteredProducts.map((product) => (
+        sortedProducts.map((product) => (
+
           <div key={product.id} className="itemCard">
             <img
               className="img-product"

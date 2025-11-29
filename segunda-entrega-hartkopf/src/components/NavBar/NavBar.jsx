@@ -15,10 +15,18 @@ function NavBar() {
   const { theme, changeTheme } = useContext(ThemeContext);
   const categories = ["Skate", "Longboard", "Rollers"];
   const auth = getAuth();
+
+  const { user, deleteUser } = useContext(UserContext);
+
   const navigate = useNavigate();
 
-  // 👇 agregás user acá
-  const { user, deleteUser } = useContext(UserContext);
+  const goHome = () => {
+    if (user?.email) {
+      navigate("/items-list");
+    } else {
+      navigate("/login");
+    }
+  };
 
   const handleCategoryClick = (category) => {
     navigate(`/category/${category.toLowerCase()}`);
@@ -70,7 +78,7 @@ function NavBar() {
                 <li
                   className="dropdown-item back-home"
                   onClick={() => {
-                    navigate("/");
+                    goHome("/");
                     setIsOpen(false);
                   }}
                 >

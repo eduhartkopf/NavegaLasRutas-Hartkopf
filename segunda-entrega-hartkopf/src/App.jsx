@@ -40,6 +40,8 @@ function App() {
             </ProtectedRoute>
           }
         />
+        <Route path="/items-list" element={<ItemList />} />
+
         <Route path="/category/:categoryId" element={<ItemList />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />

@@ -20,8 +20,10 @@ function UserProvider({ children }) {
     setUser({});
   };
 
+  const isLoggedIn = !!user?.email;
+
   return (
-    <UserContext.Provider value={{ user, saveUser, deleteUser }}>
+    <UserContext.Provider value={{ user, saveUser, deleteUser, isLoggedIn }}>
       {children}
     </UserContext.Provider>
   );
