@@ -3,7 +3,7 @@ import { CartContext } from "../../context/CartContext.jsx";
 import { getFirestore, collection, addDoc } from "firebase/firestore";
 import { app } from "../../firebase.js";
 import { toast } from "react-toastify";
-import "./Checkout.css";
+import "./CheckOut.css";
 
 function Checkout() {
   const { cart, totalPrice, clearCart } = useContext(CartContext);
