@@ -6,14 +6,19 @@ import useCounter from "../../hooks/itemCount.jsx";
 function ItemCounter({ stock, onChange, className }) {
   const { dark, changeTheme } = useContext(ThemeContext);
 
-  const [counter, less, add] = useCounter({ initial: 1, stock: stock });
+  const [counter, less, add] = useCounter({
+    initial: 1,
+    stock: Number(stock) || 0,
+  });
 
   useEffect(() => {
     onChange(counter);
   }, [counter]);
 
   return (
-    <div className={`item-counter ${dark ? "dark" : "light"} ${className || ""}`}>
+    <div
+      className={`item-counter ${dark ? "dark" : "light"} ${className || ""}`}
+    >
       <button onClick={less}>-</button>
       <span>{counter}</span>
       <button onClick={add}>+</button>

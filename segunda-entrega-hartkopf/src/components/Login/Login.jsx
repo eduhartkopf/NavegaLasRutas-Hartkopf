@@ -4,6 +4,7 @@ import { ThemeContext } from "../../context/ThemeContext";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../context/UserContext.jsx";
+import { setPersistence, browserLocalPersistence } from "firebase/auth";
 
 function Login() {
   const { theme } = useContext(ThemeContext);
@@ -14,6 +15,14 @@ function Login() {
   const [password, setPassword] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
   const navigate = useNavigate();
+
+  setPersistence(auth, browserLocalPersistence)
+    .then(() => {
+      return signInWithEmailAndPassword(auth, email, password);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
 
   const handleLogin = () => {
     signInWithEmailAndPassword(auth, email, password)

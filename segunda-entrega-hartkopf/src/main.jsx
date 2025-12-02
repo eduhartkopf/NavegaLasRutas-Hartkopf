@@ -9,6 +9,7 @@ import { BrowserRouter } from "react-router-dom";
 import CartProvider from "./context/CartContext.jsx";
 import UserProvider from "./context/UserContext.jsx";
 
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>

@@ -28,6 +28,10 @@ nav.inicio.dark .NavBar {
   box-shadow: none;
 }
 
+.left-block {
+  position: relative;
+}
+
 
 nav.inicio .logo {
   width: 240px;
@@ -37,11 +41,14 @@ nav.inicio .logo {
 
 
 .h1 {
-  margin-top: -60px;
-  margin-left: -20px;
+  position: absolute;
+  top: 15px;
+  left: 250px;
   font-size: 3.2rem;
   color: white;
+  margin: 0;
 }
+
 
 .dark .h1 {
   color: black;
@@ -61,6 +68,15 @@ nav.inicio .logo {
   background: transparent;
 }
 
+nav.inicio.light .cart-wrapper {
+  top: 20px;
+  right: 20px;
+}
+
+.dark .cart-wrapper {
+  top: 40px;
+  right: 40px;
+}
 
 .NavBar li,
 .NavBar a {
@@ -69,6 +85,7 @@ nav.inicio .logo {
   font-weight: 600;
   padding-top: 20px;
   font-size: 1.1rem;
+
 }
 
 svg {
@@ -155,7 +172,7 @@ nav.inicio.dark .logout-button:hover {
   .nav-links {
     position: absolute;
     top: 70px;
-    left: 0;
+    left: 30px;
     right: 0;
     background-color: white;
     flex-direction: column;
@@ -172,16 +189,18 @@ nav.inicio.dark .logout-button:hover {
     margin-left: -55px;
   }
 
-  .h1 {
-    margin-top: 60px;
-    margin-left: 50px;
-    font-size: 3rem;
+  nav.inicio .h1 {
+    position: absolute;
+    top: 0px;
+    left: 140px;
+    font-size: 3.2rem;
+    margin: 0;
+    color: white;
   }
 
-
   .NavBar {
-    bottom: 20px;
-    right: 15px;
+    bottom: -140px;
+    right: 3px;
     gap: 14px;
   }
 
@@ -191,10 +210,11 @@ nav.inicio.dark .logout-button:hover {
   }
 
 
+
 }
 
 
-@media (min-width: 769px) and (max-width: 1024px) {
+@media (min-width: 430px) and (max-width: 1024px) {
 
   nav.inicio {
     padding: 20px;
@@ -208,14 +228,18 @@ nav.inicio.dark .logout-button:hover {
   }
 
   .h1 {
-    margin-top: -50px;
-    margin-left: 200px;
-    font-size: 3.1rem;
+    position: absolute;
+    top: 15px;
+    left: 250px;
+    font-size: 3.2rem;
+    color: white;
+    margin: 0;
   }
 
+
   .NavBar {
-    bottom: 10px;
-    right: 20px;
+    bottom: -140px;
+    right: 5px;
     gap: 18px;
   }
 
@@ -233,7 +257,9 @@ nav.inicio.dark .logout-button:hover {
   svg {
     width: 26px;
     height: 26px;
+
   }
+
 
   .login-button,
   .logout-button {

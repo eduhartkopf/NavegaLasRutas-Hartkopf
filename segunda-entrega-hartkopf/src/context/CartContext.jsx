@@ -1,4 +1,5 @@
 import { createContext, useState, useEffect } from "react";
+import { ToastContainer, toast } from "react-toastify";
 
 export const CartContext = createContext();
 
@@ -19,18 +20,31 @@ export default function CartProvider({ children }) {
     );
   }, [cart]);
   const addCartProduct = (newProduct) => {
-    const productSearched = cart.some(
-      (product) => product.id === newProduct.id
-    );
+    const productStock = Number(newProduct.stock);
+    const productInCart = cart.find((p) => p.id === newProduct.id);
 
-    if (productSearched) {
+    if (productInCart) {
+      const newQuantity = productInCart.quantity + newProduct.quantity;
+
+      if (newQuantity > productStock) {
+        toast.error(
+          `Stock insuficiente. Disponible: ${productStock} producto/s`
+        );
+        return;
+      }
+
       const updatedCart = cart.map((product) =>
         product.id === newProduct.id
-          ? { ...product, quantity: product.quantity + newProduct.quantity }
+          ? { ...product, quantity: newQuantity }
           : product
       );
 
       setCart(updatedCart);
+      return;
+    }
+
+    if (newProduct.quantity > productStock) {
+      toast.error(`Stock insuficiente. Disponible: ${productStock} producto/s`);
       return;
     }
 

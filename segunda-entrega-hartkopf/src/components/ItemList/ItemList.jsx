@@ -58,11 +58,16 @@ function ItemList() {
           (p) => p.category.toLowerCase() === categoryId.toLowerCase()
         );
 
-        const sortedProducts = [...filteredProducts].sort((a, b) =>
-  a.title.localeCompare(b.title)
-);
+  const sortedProducts = [...filteredProducts].sort((a, b) =>
+    a.title.localeCompare(b.title)
+  );
   const handleAddCart = (product) => {
     const selectedQuantity = quantities[product.id] || 1;
+
+    if (selectedQuantity > product.stock) {
+      toast.error(`No hay suficiente stock para "${product.title}"`);
+      return;
+    }
 
     addCartProduct({ ...product, quantity: selectedQuantity });
 
@@ -90,7 +95,6 @@ function ItemList() {
       {!loading &&
         !error &&
         sortedProducts.map((product) => (
-
           <div key={product.id} className="itemCard">
             <img
               className="img-product"

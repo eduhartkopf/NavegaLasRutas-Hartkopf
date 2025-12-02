@@ -14,6 +14,8 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useContext } from "react";
 import { ThemeContext } from "./context/ThemeContext.jsx";
+import OrderSuccess from "./Pages/OrderSucces/OrderSuccess.jsx";
+
 
 function App() {
   const { dark } = useContext(ThemeContext);
@@ -47,6 +49,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="*" element={<NotFound />} />
+        <Route path="/gracias" element={<OrderSuccess />} />
       </Routes>
       <ToastContainer />
     </div>
