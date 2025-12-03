@@ -48,7 +48,7 @@ y basado en buenas prácticas modernas de React.
 
 ---
 
-## 🧪 Buenas Prácticas Aplicadas
+## Buenas Prácticas Aplicadas
 
 - Rutas limpias y semánticas.
 - Componentes con responsabilidades claras.
@@ -59,20 +59,19 @@ y basado en buenas prácticas modernas de React.
 
 ---
 
-## 🚀 Instalación y Ejecución
+##  Instalación y Ejecución
 
 1. **Clonar el repositorio:**
-bash
+   
 git clone https://github.com/eduhartkopf/NavegaLasRutas-Hartkopf.git
 
 2. **Entrar al proyecto:**
    
-bash
+
 cd nombre-del-proyecto
 
 3. **Instalar dependencias:**
 
-bash
 npm install
 
 4. **Crear archivo de configuración Firebase:**
@@ -81,12 +80,10 @@ Crear /src/firebase/config.js con tus credenciales de Firebase.
 
 5. **Ejecutar el proyecto en modo desarrollo:**
 
-bash
 npm run dev
 
 6. **Compilar para producción:**
 
-bash
 npm run build
 
 **Estado Actual del Proyecto**
