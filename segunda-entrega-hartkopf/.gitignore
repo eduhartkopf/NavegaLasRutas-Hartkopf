@@ -25,6 +25,7 @@ Icon?
 .Trashes
 .fseventsd
 .DS_Store?
+.DS_Store
 
 .vscode/
 .idea/
