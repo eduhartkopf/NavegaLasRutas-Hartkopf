@@ -1,37 +1,38 @@
 import React, { useContext, useState } from "react";
 import "./Login.css";
 import { ThemeContext } from "../../context/ThemeContext";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  setPersistence,
+  browserLocalPersistence,
+} from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../context/UserContext.jsx";
-import { setPersistence, browserLocalPersistence } from "firebase/auth";
 
 function Login() {
   const { theme } = useContext(ThemeContext);
   const { saveUser } = useContext(UserContext);
-
   const auth = getAuth();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
+
   const navigate = useNavigate();
 
-  setPersistence(auth, browserLocalPersistence)
-    .then(() => {
-      return signInWithEmailAndPassword(auth, email, password);
-    })
-    .catch((error) => {
-      console.error(error);
-    });
-
   const handleLogin = () => {
-    signInWithEmailAndPassword(auth, email, password)
+    setErrorMsg("");
+
+    setPersistence(auth, browserLocalPersistence)
+      .then(() => {
+        return signInWithEmailAndPassword(auth, email, password);
+      })
       .then(async (userCredential) => {
         const user = userCredential.user;
         const token = await user.getIdToken();
 
         saveUser(user.email, token);
-
         navigate("/category/all");
       })
       .catch((error) => {
@@ -48,13 +49,16 @@ function Login() {
         type="email"
         placeholder="Ingrese email"
       />
+
       <input
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         type="password"
         placeholder="Ingrese contraseña"
       />
+
       <button onClick={handleLogin}>Ingresar</button>
+
       {errorMsg && <p className="error">{errorMsg}</p>}
     </div>
   );
