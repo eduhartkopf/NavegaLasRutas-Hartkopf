@@ -1,129 +1,94 @@
-# E-Commerce React – Proyecto Académico
+# E-Commerce Web App — Proyecto Final
 
-Este proyecto es una aplicación de e-commerce desarrollada con React y Vite. Forma parte de una entrega académica cuyo objetivo es implementar un catálogo de productos, navegación mediante React Router, páginas dinámicas y conexión con Firestore para la carga manual de productos e imágenes.
+Este proyecto consiste en una aplicación web de e-commerce desarrollada con
+**React**, **Vite** y **React Router**, implementando navegación dinámica, carga de productos desde
+**Firebase Firestore**, almacenamiento de imágenes en **Firebase Storage**, gestión de
+usuario mediante **Context**, y un flujo completo de compra con **Checkout** y **Order Success**.
 
-La app permite recorrer categorías, ver detalles de productos, agregarlos al carrito, gestionar cantidades, y navegar entre distintas rutas. También integra un modo claro/oscuro mediante Context API.
+El objetivo del proyecto es presentar un Front End funcional, modular, mantenible
+y basado en buenas prácticas modernas de React.
 
-## Características principales
+---
 
-- Catálogo completo de productos.
+## Tecnologías y Librerías Principales
 
-- Filtro por categorías desde la barra de navegación.
+- **React + Vite** — Arquitectura ligera y rápida.
+- **React Router DOM** — Navegación por rutas, rutas dinámicas y rutas protegidas.
+- **Firebase Firestore** — Base de datos NoSQL para productos y órdenes.
+- **imgBB** — Hosting de imágenes de productos.
+- **Context API** — Manejo global del usuario y persistencia opcional.
+- **CSS modular** — Estilos separados por componentes.
+- **Lucide-react** — Íconos limpios y livianos.
 
-- Sistema de rutas configurado con React Router.
+---
 
-- Página de detalles de cada producto.
+## Funcionalidades Implementadas
 
-- Carrito de compras totalmente funcional.
+### 🔹 Catálogo dinámico
 
-- Persistencia de datos mediante JSON y posteriormente Firestore.
+- Render de productos desde Firestore.
+- Categorías filtrables desde rutas dinámicas (`/category/:id`).
+- Vista individual de producto.
 
-- Implementación de Theme Context para modo claro/oscuro.
+### 🔹 Carrito y Checkout
 
-- Componentes reutilizables organizados por carpetas.
+- Context global para agregar, quitar y vaciar el carrito.
+- Cantidad configurada por el usuario mediante `ItemCount`.
+- Vista de Checkout.
+- Generación de orden en Firestore.
+- Pantalla de confirmación con ID de compra.
 
-- Integración con Firebase Storage para las imágenes.
+### 🔹 Autenticación básica
 
-- Configuración lista para escalar a checkout, login y más.
+- Context para almacenar `email` y `accessToken`.
+- Persistencia opcional con `localStorage`.
 
-## Tecnologías utilizadas
+### 🔹 Integración con Firebase
 
-- React
+- Subida manual de imágenes a Storage.
+- Obtención manual del URL de descarga.
+- Creación de documentos de productos en Firestore.
+- Colección de órdenes con detalles de compra.
 
-- Vite
+---
 
-- React Router
+## Buenas Prácticas Aplicadas
 
-- Firebase (Firestore)
+- Rutas limpias y semánticas.
+- Componentes con responsabilidades claras.
+- Hooks adecuados (`useEffect`, `useParams`, `useNavigate`, `useContext`).
+- Separación estricta entre UI y lógica.
+- Persistencia del usuario sin bloquear navegación.
+- Manejo de estados de carga y errores.
 
-- Context API
+---
 
-- Lucide React Icons
+## Instalación y Ejecución
 
-- CSS personalizado + Bootstrap en algunas vistas
+1. **Clonar el repositorio:**
 
-- JSON estático como base de datos inicial
+git clone https://github.com/eduhartkopf/NavegaLasRutas-Hartkopf.git
 
-## Instalación
+2. **Entrar al proyecto:**
 
-- Clonar el repositorio.
+cd nombre-del-proyecto
 
-- Instalar dependencias con el administrador de paquetes correspondiente.
+3. **Instalar dependencias:**
 
-- Iniciar el servidor de desarrollo.
+npm install
 
-- Abrir la aplicación en el puerto asignado por Vite.
+4. **Crear archivo de configuración Firebase:**
 
-- Configurar variables de entorno si se utiliza Firebase.
+Crear /src/firebase/config.js con tus credenciales de Firebase.
 
-- Enlazar imágenes en Firebase Storage o ImgBB y vincular las URLs en Firestore.
+5. **Ejecutar el proyecto en modo desarrollo:**
 
-## Estructura del proyecto
+npm run dev
 
-El proyecto está dividido en carpetas organizadas que facilitan la lectura y el mantenimiento:
+6. **Compilar para producción:**
 
-Componentes para navegación, catálogo, carrito, tarjetas y vistas específicas.
+npm run build
 
-- Context para gestionar el tema claro/oscuro.
-
-- Carpeta de data para productos en JSON.
-
-- Archivo principal con la configuración de rutas.
-
-- Estilos modulares para cada componente.
-
-## Carga manual de productos en Firestore
-
-El proyecto utiliza una carga manual para asegurar control y evitar errores siendo la primera integración con Firebase. El proceso consiste en:
-
-- Subir las imágenes a Firebase Storage o ImgBB.
-
-- Copiar la URL de cada imagen.
-
-- Crear documentos dentro de la colección correspondiente.
-
-- Completar los campos como título, precio, descripción, categoría, stock, imagen, destacado, etc.
-
-- Guardar y verificar que las imágenes carguen correctamente en la app.
-
-## Modo claro/oscuro
-
-La app incluye un Theme Context personalizado que permite:
-
-- Cambiar el tema desde un botón en la barra de navegación.
-
-- Aplicar clases light y dark de forma dinámica.
-
-- Mantener la UI consistente en todas las rutas.
-
-## Objetivos de la entrega académica
-
-- Aplicar conceptos de React moderno.
-
-- Implementar navegación real con React Router.
-
-- Comprender cómo dividir una aplicación en componentes reutilizables.
-
-- Practicar consumo de datos locales y remotos.
-
-- Incorporar una base de datos en la nube mediante Firebase.
-
-- Desarrollar habilidades reales para un proyecto escalable.
-
-## Estado del proyecto
-
-Actualmente en desarrollo activo. Se continúa ampliando:
-
-- Optimización del carrito.
-
-- Mejora del componente de categorías.
-
-- Integración progresiva con Firestore.
-
-- Ajustes visuales en modo oscuro.
-
-- Preparación para checkout y futuros módulos de autenticación.
-
-## Licencia
-
-Uso académico. Puede reutilizarse, modificarse y expandirse libremente.
+**Estado Actual del Proyecto**
+Proyecto completamente funcional, con navegación, catálogo dinámico, carrito,
+checkout, órdenes en Firestore y estructura lista para futuras expansiones.
