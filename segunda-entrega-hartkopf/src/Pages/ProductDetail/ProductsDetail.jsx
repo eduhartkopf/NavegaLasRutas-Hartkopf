@@ -44,7 +44,7 @@ function ProductsDetail() {
 
   return (
     <div className={`productDetail ${theme}`}>
-      <ItemDetail product={product} />
+      {product.stock !== undefined && <ItemDetail product={product} />}
     </div>
   );
 }

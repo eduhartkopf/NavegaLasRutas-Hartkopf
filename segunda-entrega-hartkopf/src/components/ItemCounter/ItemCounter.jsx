@@ -1,14 +1,14 @@
 import "./ItemCounter.css";
 import { useContext, useEffect } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
-import useCounter from "../../hooks/itemCount.jsx";
+import useCounter from "../../hooks/useCounter.js";
 
 function ItemCounter({ stock, onChange, className }) {
   const { dark, changeTheme } = useContext(ThemeContext);
 
   const [counter, less, add] = useCounter({
     initial: 1,
-    stock: Number(stock) || 0,
+    stock: Number(stock),
   });
 
   useEffect(() => {

@@ -33,21 +33,22 @@ function ItemDetail({ product }) {
   return (
     <div className={`itemDetail__container ${theme}`}>
       <div className="itemDetail__card">
-        <img
-          src={product.img}
-          alt={product.title}
-          className="itemDetail__image"
-        />
+  <img src={product.img} alt={product.title} className="itemDetail__image" />
 
-        <h2 className="itemDetail__title">{product.title}</h2>
+  <h2 className="itemDetail__title">{product.title}</h2>
 
-        <p className="itemDetail__description">{product.long_description}</p>
+  <p className="itemDetail__description">
+    {product.long_description}
+  </p>
 
-        <div className="itemDetail__counter">
-          <ItemCounter stock={product.stock} onChange={setCount} />
-        </div>
+  {product.stock !== undefined && (
+    <div className="itemDetail__counter">
+      <ItemCounter stock={product.stock} onChange={setCount} />
+    </div>
+  )}
 
-        <span className="itemDetail__price">${product.price} ARG</span>
+  <span className="itemDetail__price">${product.price} ARG</span>
+
 
         <div className="itemDetail__actions">
           <ButtonPrimary onClick={handleAddCartProduct}>

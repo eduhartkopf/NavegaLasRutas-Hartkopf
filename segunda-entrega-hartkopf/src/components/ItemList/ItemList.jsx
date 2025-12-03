@@ -107,11 +107,14 @@ function ItemList() {
 
             <p className="price">${product.price}</p>
 
-            <ItemCounter
-              stock={product.stock}
-              className="counter-card"
-              onChange={(value) => handleQuantityChange(product.id, value)}
-            />
+            {product.stock !== undefined && (
+  <ItemCounter
+    stock={product.stock}
+    className="counter-card"
+    onChange={(value) => handleQuantityChange(product.id, value)}
+  />
+)}
+
 
             <div className="buttons">
               <Link to={`/products/${product.id}`}>
