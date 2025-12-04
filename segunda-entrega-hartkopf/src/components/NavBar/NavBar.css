@@ -184,16 +184,16 @@ nav.inicio.dark .logout-button:hover {
   }
 
   nav.inicio .logo {
-    width: 200px;
+    width: 150px;
     margin-top: 15px;
-    margin-left: -55px;
+    margin-left: -45px;
   }
 
   nav.inicio .h1 {
     position: absolute;
-    top: 0px;
-    left: 140px;
-    font-size: 3.2rem;
+    top: 30px;
+    left: 85px;
+    font-size: 2rem;
     margin: 0;
     color: white;
   }
@@ -214,7 +214,7 @@ nav.inicio.dark .logout-button:hover {
 }
 
 
-@media (min-width: 430px) and (max-width: 1024px) {
+@media (min-width: 769px) and (max-width: 1024px) {
 
   nav.inicio {
     padding: 20px;

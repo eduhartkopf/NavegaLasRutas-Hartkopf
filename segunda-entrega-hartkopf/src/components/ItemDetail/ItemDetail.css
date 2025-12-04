@@ -123,3 +123,28 @@
 .backButton:active {
   transform: translateY(0);
 }
+
+@media (max-width: 360px) {
+  .itemDetail {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.6rem;
+  }
+
+  .itemDetail img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+  }
+
+  .itemDetail .price {
+    font-size: 1rem;
+    font-weight: 700;
+  }
+
+  .itemDetail .meta {
+    font-size: 0.95rem;
+  }
+}
