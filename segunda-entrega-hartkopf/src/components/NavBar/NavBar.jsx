@@ -56,6 +56,7 @@ function NavBar() {
           alt="logo"
           src="../../../images/Items/logoSkateProyectoreact.png"
         />
+        <CartWidget />
         <h1 className="h1">Ramp & Roll</h1>
         <ul className="NavBar">
           <li
@@ -105,8 +106,6 @@ function NavBar() {
           )}
         </ul>
       </div>
-
-      <CartWidget />
     </nav>
   );
 }

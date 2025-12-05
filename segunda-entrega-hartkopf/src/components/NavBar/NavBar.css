@@ -1,7 +1,15 @@
 .inicio {
-  min-height: 100px;
+  width: 100%;
+  overflow-x: hidden;
   position: relative;
 }
+
+.NavBar {
+  position: absolute;
+  bottom: -125px;
+
+}
+
 
 nav.inicio.light {
   background-image: url("/images/Items/portadaLight.jpg") !important;
@@ -30,6 +38,9 @@ nav.inicio.dark .NavBar {
 
 .left-block {
   position: relative;
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
 
@@ -41,9 +52,6 @@ nav.inicio .logo {
 
 
 .h1 {
-  position: absolute;
-  top: 15px;
-  left: 250px;
   font-size: 3.2rem;
   color: white;
   margin: 0;
@@ -57,7 +65,7 @@ nav.inicio .logo {
 
 .NavBar {
   position: absolute;
-  bottom: 0;
+  bottom: -125px;
   right: 20px;
   display: flex;
   gap: 20px;
@@ -212,6 +220,7 @@ nav.inicio.dark .logout-button:hover {
 
 
 }
+
 
 
 @media (min-width: 769px) and (max-width: 1024px) {

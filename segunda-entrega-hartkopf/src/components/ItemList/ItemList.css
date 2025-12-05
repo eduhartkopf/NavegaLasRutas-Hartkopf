@@ -4,7 +4,6 @@
   flex-wrap: wrap;
   gap: 16px;
   justify-content: center;
-  padding: 10px;
   border-radius: 3px;
 }
 
@@ -67,4 +66,27 @@
   margin-top: 10px;
   margin-bottom: 15px;
   transform: scale(0.95);
+}
+
+@media (max-width: 360px) {
+  .itemList {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 8px;
+    margin: 0 auto;
+  }
+
+  .itemCard {
+    flex: 1 1 100%;
+    max-width: 260px;
+    margin: 0 auto;
+    padding: 10px;
+  }
+
+  .img-product {
+    max-width: 120px;
+    margin: 0 auto;
+  }
 }
