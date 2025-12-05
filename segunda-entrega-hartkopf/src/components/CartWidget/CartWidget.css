@@ -7,10 +7,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 50; 
+  z-index: 50;
 }
 
-/* Mantiene color según tema, pero sin mover posiciones */
 .light .cart-wrapper {
   background-color: transparent;
   color: white;
