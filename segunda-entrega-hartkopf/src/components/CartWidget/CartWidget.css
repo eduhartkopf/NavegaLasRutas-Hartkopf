@@ -16,8 +16,10 @@
 }
 
 .dark .cart-wrapper {
-  background-color: #222;
+  background-color: transparent;
   color: white;
+  top: 20px;
+  right: 20px;
 }
 
 .cart-wrapper svg {
